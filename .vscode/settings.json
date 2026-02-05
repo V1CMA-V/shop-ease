@@ -1,0 +1,21 @@
+{
+    "emmet.includeLanguages": {
+        "twig": "html"
+    },
+    "emmet.triggerExpansionOnTab": true,
+    "html.autoClosingTags": true,
+    "files.associations": {
+        "*.html.twig": "twig",
+        "*.twig": "twig"
+    },
+    "editor.formatOnSave": true,
+    "editor.quickSuggestions": {
+        "other": true,
+        "comments": false,
+        "strings": true
+    },
+    "[twig]": {
+        "editor.defaultFormatter": "mblode.twig-language-2",
+        "editor.tabSize": 4
+    }
+}

@@ -8,10 +8,10 @@ use Symfony\Component\Routing\Attribute\Route;
 
 class AdminController extends AbstractController
 {
-    #[Route('/admin', name: 'app_admin_dashboard')]
+    #[Route('/admin', name: 'app_dashboard')]
     public function adminHomePage(): Response
     {
 
-        return $this->render('admin/homePage.html.twig');
+        return $this->render('admin/index.html.twig');
     }
 }

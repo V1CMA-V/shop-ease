@@ -1,0 +1,68 @@
+{% extends 'admin/layoutPage.html.twig' %}
+
+{% block title %}Product List
+{% endblock %}
+
+{% block content %}
+
+	<div class="min-h-screen bg-gradient-to-br from-blue-100 via-green-100 to-white py-12 px-4 sm:px-6 lg:px-8">
+		<div class="max-w-6xl mx-auto bg-white shadow-xl rounded-3xl p-8 sm:p-10 border border-blue-100">
+			<div class="flex items-center justify-between">
+				<h1 class="text-4xl font-extrabold text-blue-900 flex items-center gap-2">
+					<span>Product List</span>
+				</h1>
+				<a href="#" class="inline-flex items-center px-4 py-2 bg-blue-600 text-white text-sm font-medium rounded-xl shadow hover:bg-blue-700 transition-colors duration-200">
+					Add Product
+				</a>
+			</div>
+
+			<div class="overflow-x-auto rounded-xl border border-gray-200 mt-10">
+				<table class="w-full bg-white text-sm text-left">
+					<thead class="bg-blue-100 text-blue-800 uppercase text-xs font-semibold tracking-wide">
+						<tr class="border-b border-gray-200">
+							<th class="py-4 px-6">#</th>
+							<th class="py-4 px-6">Image</th>
+							<th class="py-4 px-6">Name</th>
+							<th class="py-4 px-6">Category</th>
+							<th class="py-4 px-6">Price</th>
+							<th class="py-4 px-6">Actions</th>
+						</tr>
+					</thead>
+
+					<tbody>
+						{% for product in products %}
+
+							<tr class="hover:bg-gray-50 transition-colors duration-150">
+								<td class="py-4 px-6 font-semibold text-gray-500">{{loop.index}}</td>
+								<td class="py-4 px-6">
+									{% if product.image %}
+										<img src="{{ product.image }}" alt="{{ product.name }}" class="w-12 h-12 object-cover rounded-md border border-gray-300 shadow-sm" width="75" height="75">
+									{% else %}
+										<span class="text-gray-400 italic">No Image</span>
+									{% endif %}
+								</td>
+
+								<td class="py-4 px-6 font-medium text-gray-900">{{ product.name }}</td>
+								<td class="py-4 px-6">{{ product.category.name }}</td>
+								<td class="py-4 px-6 font-medium text-gray-900">{{ product.price|number_format(2) }}</td>
+								<td class="py-4 px-6">
+									<a href="#" class="inline-flex items-center gap-1 text-blue-600 hover:text-blue-800 transition-colors duration-200" title="View Product">
+										<span class="hidden sm:inline">View</span>
+									</a>
+
+								</td>
+							</tr>
+
+						{% else %}
+
+							<tr>
+								<td colspan="6" class="text-center py-8 text-gray-500">No products found</td>
+							</tr>
+
+						{% endfor %}
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+{% endblock %}
