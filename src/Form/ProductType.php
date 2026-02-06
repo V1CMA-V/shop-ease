@@ -29,17 +29,17 @@ class ProductType extends AbstractType
                 ],
                 'label_attr' => ['class' => 'text-gray-700 font-semibold'],
                 'constraints' => [
-                    new File([
-                        'maxSize' => '2M',
-                        'mimeTypes' => [
+                    new File(
+                        maxSize: '2M',
+                        mimeTypes: [
                             'image/jpeg',
                             'image/webp',
                             'image/png',
                             'image/gif',
                         ],
-                        'mimeTypesMessage' => 'Please upload a valid image file',
-                        'maxSizeMessage' => 'The file is too large',
-                    ])
+                        mimeTypesMessage: 'Please upload a valid image file',
+                        maxSizeMessage: 'The file is too large'
+                    )
                 ]
             ])
             ->add('createdAt', null, [
